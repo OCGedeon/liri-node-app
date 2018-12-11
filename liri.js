@@ -64,7 +64,8 @@ var test = function (apiType, data) {
     } else if (apiType == "movie-this") {
 
         var movieName = process.argv.slice(3).join(" ");
-
+        axios.get(queryURL)
+            .then(function(response){
         if (movieName == undefined) {
             movieName = "Mr. Nobody";
         } 
@@ -78,14 +79,14 @@ var test = function (apiType, data) {
             console.log("Country :" +  result.Country);
             console.log("Movie Plot :" + result.Plot);
             console.log("Actors :" +  result.Actors);
-    
+        })
         });
     
     } else if ( process.argv[2] == 'do-what-it-says') {
         console.log('do what it says')
 
 
-        
+
     } else {
         console.log("Please try again :)");
     }
